@@ -2,15 +2,13 @@ import React from 'react';
 import {
   Box,
   Typography,
-  Button,
   Card,
   CardMedia,
   CardContent,
-  CardActions,
   Chip,
 } from '@material-ui/core';
-import PhoneIcon from '@material-ui/icons/Phone';
-import Rating from '@material-ui/lab/Rating';
+
+import PlaceIcon from '@mui/icons-material/Place';
 
 import useStyles from './styles';
 
@@ -46,13 +44,36 @@ const PlaceDetails = ({ place }) => {
         </Box>
         {place?.awards?.map((award) => (
           <Box
+            my={1}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
           >
             <img src={award.images.small} alt={award.display_name} />
+            <Typography variant="subtitle2" color="textSecondary">
+              {award.display_name}
+            </Typography>
           </Box>
         ))}
+        {place?.cuisine?.map(({ name }) => (
+          <Chip
+            key={name}
+            size="small"
+            label={name}
+            className={classes.chip}
+          ></Chip>
+        ))}
+        {place?.address && (
+          <Typography
+            gutterBottom
+            variant="body2"
+            color="textSecondary"
+            className={classes.subtitle}
+          >
+            <PlaceIcon sx={{ mr: 1 }} />
+            {place.address}
+          </Typography>
+        )}
       </CardContent>
     </Card>
   );

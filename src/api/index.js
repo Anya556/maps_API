@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_KEY from '../../config';
+import API_KEY from '../config';
 
 const URL =
   'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary';
