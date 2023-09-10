@@ -8,11 +8,12 @@ export default makeStyles(() => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: '10px',
+    marginTop: '15px',
   },
   spacing: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: '15px',
   },
 }));

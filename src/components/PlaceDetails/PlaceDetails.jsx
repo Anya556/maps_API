@@ -6,7 +6,11 @@ import {
   CardMedia,
   CardContent,
   Chip,
+  CardActions,
+  Button,
 } from '@material-ui/core';
+
+import MdPhone from '@mui/icons-material/Phone';
 
 import PlaceIcon from '@mui/icons-material/Place';
 
@@ -74,6 +78,33 @@ const PlaceDetails = ({ place }) => {
             {place.address}
           </Typography>
         )}
+        {place?.phone && (
+          <Typography
+            gutterBottom
+            variant="body2"
+            color="textSecondary"
+            className={classes.spacing}
+          >
+            <MdPhone />
+            {place.phone}
+          </Typography>
+        )}
+        <CardActions>
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => window.open(place.web_url, '_blank')}
+          >
+            Trip Advisor
+          </Button>
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => window.open(place.website, '_blank')}
+          >
+            Website
+          </Button>
+        </CardActions>
       </CardContent>
     </Card>
   );
