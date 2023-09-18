@@ -32,12 +32,12 @@ const Map = ({
         }}
         onChildClick={(child) => setChildClicked(child)}
       >
-        {places?.map((place, index) => (
+        {places?.map((place, i) => (
           <div
             className={classes.markerContainer}
             lat={Number(place.latitude)}
             lng={Number(place.longitude)}
-            key={index}
+            key={i}
           >
             {!isDesktop ? (
               <LocationOnOutlinedIcon color="primary" fontSize="large" />

@@ -24,6 +24,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     // console.log(coordinates, bounds);
 
     getPlacesData(bounds.sw, bounds.ne).then((data) => {

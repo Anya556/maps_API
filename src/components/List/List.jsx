@@ -12,6 +12,7 @@ import {
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 
 import useStyles from './styles';
+
 const List = ({ places, childClicked, isLoading }) => {
   const classes = useStyles();
   const [type, setType] = useState('restaurants');
@@ -23,7 +24,7 @@ const List = ({ places, childClicked, isLoading }) => {
       .fill()
       .map((_, i) => elRefs[i] || createRef());
     setElRefs(refs);
-  }, [elRefs, places]);
+  }, [places]);
 
   return (
     <div className={classes.container}>
@@ -55,7 +56,7 @@ const List = ({ places, childClicked, isLoading }) => {
           </FormControl>
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, i) => (
-              <Grid item key={i} xs={12}>
+              <Grid ref={elRefs[i]} item key={i} xs={12}>
                 <PlaceDetails
                   place={place}
                   selected={Number(childClicked) === i}
